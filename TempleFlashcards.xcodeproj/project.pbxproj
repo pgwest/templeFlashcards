@@ -7,17 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181D11821DA4A03500090038 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D11811DA4A03500090038 /* Flashcard.swift */; };
+		181D11841DA4A04800090038 /* FlashcardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D11831DA4A04800090038 /* FlashcardList.swift */; };
+		181D11881DA4A5DE00090038 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D11871DA4A5DE00090038 /* CardViewController.swift */; };
+		181D118A1DA4A77600090038 /* CurrentFlashcardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D11891DA4A77600090038 /* CurrentFlashcardList.swift */; };
+		181D118E1DA4BCA600090038 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D118D1DA4BCA600090038 /* NameViewController.swift */; };
+		1850E2B01DA732E100DE89B4 /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850E2AF1DA732E100DE89B4 /* CustomCollectionCell.swift */; };
+		1850E2B21DA733C700DE89B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850E2B11DA733C700DE89B4 /* ViewController.swift */; };
+		1850E2B41DA741E000DE89B4 /* CustomCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850E2B31DA741E000DE89B4 /* CustomCellView.swift */; };
 		18AAFAF41DA356750035C44E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAFAF31DA356750035C44E /* AppDelegate.swift */; };
-		18AAFAF61DA356750035C44E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAFAF51DA356750035C44E /* ViewController.swift */; };
 		18AAFAF91DA356750035C44E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AAFAF71DA356750035C44E /* Main.storyboard */; };
 		18AAFAFB1DA356750035C44E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18AAFAFA1DA356750035C44E /* Assets.xcassets */; };
 		18AAFAFE1DA356750035C44E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AAFAFC1DA356750035C44E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		181D11811DA4A03500090038 /* Flashcard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
+		181D11831DA4A04800090038 /* FlashcardList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashcardList.swift; sourceTree = "<group>"; };
+		181D11871DA4A5DE00090038 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		181D11891DA4A77600090038 /* CurrentFlashcardList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentFlashcardList.swift; sourceTree = "<group>"; };
+		181D118D1DA4BCA600090038 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
+		1850E2AF1DA732E100DE89B4 /* CustomCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
+		1850E2B11DA733C700DE89B4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1850E2B31DA741E000DE89B4 /* CustomCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellView.swift; sourceTree = "<group>"; };
 		18AAFAF01DA356750035C44E /* TempleFlashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TempleFlashcards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AAFAF31DA356750035C44E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18AAFAF51DA356750035C44E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		18AAFAF81DA356750035C44E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18AAFAFA1DA356750035C44E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18AAFAFD1DA356750035C44E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +49,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181D117F1DA4A00B00090038 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18AAFAF71DA356750035C44E /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		181D11801DA4A01800090038 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1850E2B11DA733C700DE89B4 /* ViewController.swift */,
+				181D11871DA4A5DE00090038 /* CardViewController.swift */,
+				1850E2AF1DA732E100DE89B4 /* CustomCollectionCell.swift */,
+				1850E2B31DA741E000DE89B4 /* CustomCellView.swift */,
+				181D118D1DA4BCA600090038 /* NameViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		181D11851DA4A0B800090038 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				181D11811DA4A03500090038 /* Flashcard.swift */,
+				181D11831DA4A04800090038 /* FlashcardList.swift */,
+				181D11891DA4A77600090038 /* CurrentFlashcardList.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		181D11861DA4A0C100090038 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18AAFAF31DA356750035C44E /* AppDelegate.swift */,
+				18AAFAFC1DA356750035C44E /* LaunchScreen.storyboard */,
+				18AAFAFF1DA356750035C44E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		18AAFAE71DA356740035C44E = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +108,11 @@
 		18AAFAF21DA356750035C44E /* TempleFlashcards */ = {
 			isa = PBXGroup;
 			children = (
-				18AAFAF31DA356750035C44E /* AppDelegate.swift */,
-				18AAFAF51DA356750035C44E /* ViewController.swift */,
-				18AAFAF71DA356750035C44E /* Main.storyboard */,
+				181D11801DA4A01800090038 /* Controller */,
+				181D117F1DA4A00B00090038 /* View */,
 				18AAFAFA1DA356750035C44E /* Assets.xcassets */,
-				18AAFAFC1DA356750035C44E /* LaunchScreen.storyboard */,
-				18AAFAFF1DA356750035C44E /* Info.plist */,
+				181D11861DA4A0C100090038 /* Supporting Files */,
+				181D11851DA4A0B800090038 /* Model */,
 			);
 			path = TempleFlashcards;
 			sourceTree = "<group>";
@@ -96,6 +149,7 @@
 				TargetAttributes = {
 					18AAFAEF1DA356740035C44E = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 42W5AHC36X;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -136,8 +190,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18AAFAF61DA356750035C44E /* ViewController.swift in Sources */,
+				181D11821DA4A03500090038 /* Flashcard.swift in Sources */,
 				18AAFAF41DA356750035C44E /* AppDelegate.swift in Sources */,
+				181D11841DA4A04800090038 /* FlashcardList.swift in Sources */,
+				181D118A1DA4A77600090038 /* CurrentFlashcardList.swift in Sources */,
+				1850E2B41DA741E000DE89B4 /* CustomCellView.swift in Sources */,
+				181D11881DA4A5DE00090038 /* CardViewController.swift in Sources */,
+				181D118E1DA4BCA600090038 /* NameViewController.swift in Sources */,
+				1850E2B21DA733C700DE89B4 /* ViewController.swift in Sources */,
+				1850E2B01DA732E100DE89B4 /* CustomCollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 42W5AHC36X;
 				INFOPLIST_FILE = TempleFlashcards/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = is543.TempleFlashcards;
@@ -270,6 +332,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 42W5AHC36X;
 				INFOPLIST_FILE = TempleFlashcards/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = is543.TempleFlashcards;
@@ -297,6 +360,7 @@
 				18AAFB041DA356750035C44E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

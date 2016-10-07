@@ -1,26 +1,139 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2G2-Vd-XxG">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="3EB-14-JTX">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2G2-Vd-XxG" customClass="ViewController" customModule="TempleFlashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="Cy6-vi-W93"/>
+                        <viewControllerLayoutGuide type="bottom" id="w7V-DM-CSc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="view" contentMode="scaleToFill" id="xMh-Ow-WLW">
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhV-fd-Qmw">
+                                <items>
+                                    <barButtonItem title="Study Mode" id="fU6-XO-cIP">
+                                        <connections>
+                                            <action selector="studyMode:" destination="2G2-Vd-XxG" id="f0c-d1-ZIN"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTy-ZE-V05">
+                                <connections>
+                                    <segue destination="jPd-Zs-Lsa" kind="embed" id="J5G-1z-jX5"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZaB-aO-XDh">
+                                <connections>
+                                    <segue destination="qhT-Wo-RtL" kind="embed" id="mh3-C8-h8I"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZaB-aO-XDh" secondAttribute="trailing" id="4S8-J4-xcO"/>
+                            <constraint firstItem="zhV-fd-Qmw" firstAttribute="top" secondItem="ZaB-aO-XDh" secondAttribute="bottom" id="7wF-rd-JO9"/>
+                            <constraint firstItem="ZaB-aO-XDh" firstAttribute="top" secondItem="xMh-Ow-WLW" secondAttribute="top" id="IIf-7c-GHW"/>
+                            <constraint firstAttribute="trailing" secondItem="zhV-fd-Qmw" secondAttribute="trailing" id="NbX-Zy-2MB"/>
+                            <constraint firstItem="ZaB-aO-XDh" firstAttribute="leading" secondItem="xMh-Ow-WLW" secondAttribute="leading" constant="442" id="POS-oj-ggd"/>
+                            <constraint firstItem="qTy-ZE-V05" firstAttribute="top" secondItem="xMh-Ow-WLW" secondAttribute="top" constant="-1" id="cMo-Pb-r8i"/>
+                            <constraint firstAttribute="trailing" secondItem="ZaB-aO-XDh" secondAttribute="trailing" id="cU9-kC-f2J"/>
+                            <constraint firstItem="zhV-fd-Qmw" firstAttribute="top" secondItem="qTy-ZE-V05" secondAttribute="bottom" id="gcT-6b-mcA"/>
+                            <constraint firstItem="qTy-ZE-V05" firstAttribute="leading" secondItem="xMh-Ow-WLW" secondAttribute="leading" constant="-1" id="ggL-dG-wmT"/>
+                            <constraint firstItem="zhV-fd-Qmw" firstAttribute="top" secondItem="ZaB-aO-XDh" secondAttribute="bottom" id="hQm-ew-cvx"/>
+                            <constraint firstItem="w7V-DM-CSc" firstAttribute="top" secondItem="zhV-fd-Qmw" secondAttribute="bottom" id="iR6-eA-j5P"/>
+                            <constraint firstItem="zhV-fd-Qmw" firstAttribute="leading" secondItem="xMh-Ow-WLW" secondAttribute="leading" id="qcw-fz-HSA"/>
+                            <constraint firstItem="ZaB-aO-XDh" firstAttribute="leading" secondItem="qTy-ZE-V05" secondAttribute="trailing" constant="1" id="zC9-hl-Q5t"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableViewWidthConstraint" destination="POS-oj-ggd" id="gxk-aQ-be0"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFv-yV-WUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-90.489130434782609" y="-404.34782608695656"/>
+        </scene>
+        <!--Card View Controller-->
+        <scene sceneID="yUs-Ge-QdP">
+            <objects>
+                <collectionViewController id="jPd-Zs-Lsa" customClass="CardViewController" customModule="TempleFlashcards" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="kah-1h-wUW">
+                        <rect key="frame" x="0.0" y="0.0" width="442" height="371"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2Ac-jo-jl7">
+                            <size key="itemSize" width="114" height="114"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TempleNameCell" id="Jfq-JR-1qS" customClass="CustomCollectionCell" customModule="TempleFlashcards" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="114" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="114" height="114"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Tn-0J-bGB" customClass="CustomCellView" customModule="TempleFlashcards" customModuleProvider="target">
+                                            <frame key="frameInset" minX="8" minY="8" width="98" height="212"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="customView" destination="6Tn-0J-bGB" id="QDT-N1-WP5"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="jPd-Zs-Lsa" id="LfW-Ug-Z6G"/>
+                            <outlet property="delegate" destination="jPd-Zs-Lsa" id="ghJ-3D-iJY"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w6w-hj-1dX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-250.27173913043481" y="429.71014492753625"/>
+        </scene>
+        <!--Name View Controller-->
+        <scene sceneID="UGE-4Q-mcz">
+            <objects>
+                <tableViewController id="qhT-Wo-RtL" customClass="NameViewController" customModule="TempleFlashcards" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vd1-Yk-tn6">
+                        <rect key="frame" x="0.0" y="0.0" width="294" height="370"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TempleNameCell" id="eHS-xV-vZy">
+                                <rect key="frame" x="0.0" y="28" width="294" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eHS-xV-vZy" id="Lms-IC-bld">
+                                    <frame key="frameInset" width="294" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qhT-Wo-RtL" id="gW0-7y-Awq"/>
+                            <outlet property="delegate" destination="qhT-Wo-RtL" id="rG8-jV-phb"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m8I-zt-ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="103" y="430"/>
         </scene>
     </scenes>
 </document>
