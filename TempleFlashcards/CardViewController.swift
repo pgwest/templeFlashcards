@@ -13,6 +13,11 @@ class CardViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let notificationName = Notification.Name("load")
+        //NotificationCenter.defaultCenter().addObserver(self, selector: "loadList:", name:"load", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CardViewController.loadList), name: notificationName, object: nil)
+
+        
     }
 
     
@@ -52,11 +57,29 @@ class CardViewController: UICollectionViewController {
     
     // Mark: - Helpers
     
+    
+
+
+    func loadList(notification: Notification){
+        print("caught notification")
+//        self.collectionView?.reloadItems(at: (self.collectionView?.indexPathsForVisibleItems)!);
+
+        self.collectionView?.reloadData()
+    }
+    
+    
+    func update() {
+        self.collectionView?.reloadData()
+        
+    }
+    
     func removeCorrectanswer(_ flashcard: Flashcard){
     
         //remove flashcard from deck
         
         self.collectionView?.reloadData()
     }
+    
+    
     
 }

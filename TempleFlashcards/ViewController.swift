@@ -11,17 +11,24 @@ import UIKit
 class ViewController : UIViewController {
     
     
-    var hide = false
+    var hide = true
     
     
     @IBAction func studyMode(_ sender: AnyObject) {
-        if hide == true {
+        if hide == false {
             tableViewWidthConstraint.constant = 442
-            hide = false
+            CustomCellView.studyMode = false
+            //let notificationName = Notification.Name("load")
+            //NotificationCenter.default.post(name: notificationName, object: nil)
+//            CardViewController.update()
+            hide = true
         }
         else{
             tableViewWidthConstraint.constant = UIScreen.main.bounds.width//720
-            hide = true
+            CustomCellView.studyMode = true
+            //let notificationName = Notification.Name("load")
+            //NotificationCenter.default.post(name: notificationName, object: nil)
+            hide = false
         }
         UIView.animate(withDuration: 1.5) {
             self.view.layoutIfNeeded()
