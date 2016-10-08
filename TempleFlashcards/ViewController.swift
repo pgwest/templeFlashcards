@@ -18,6 +18,7 @@ class ViewController : UIViewController {
         let notificationName = Notification.Name("updateScore")
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.updateScore(notification:)), name: notificationName, object: nil)
         
+        tableViewWidthConstraint.constant = UIScreen.main.bounds.width * 0.66
 
     }
     

@@ -32,23 +32,15 @@ class CustomCellView : UIView {
        image = UIImage(named: templeFileName)!
         image.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: bounds.width, height: bounds.width))) // bounds) //want to be 98x98
 
-//        print("the study mode is", CustomCellView.studyMode)
-//        print("name at redraw ", templeName)
-        
-
-        
         
         if CustomCellView.studyMode {
             
-            //let banner = UIBezierPath()
             
             let bannerWidth = bounds.width
-            //let bannerHeight = bounds.width * 0.10
             
 
             
             let requiredLabelHeight = requiredHeight()
-            //print("requried height", requiredLabelHeight)
             let labelRect = CGRect(x: 0.0, y: bounds.width - requiredLabelHeight, width: bannerWidth, height: requiredLabelHeight)
             label = UILabel(frame: labelRect)
             label.numberOfLines = 0

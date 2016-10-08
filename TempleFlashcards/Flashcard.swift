@@ -9,8 +9,13 @@
 import Foundation
 
 class Flashcard {
+    
+    // Mark: - Properties
+    
     var fileName = ""
     var name = ""
+    
+    // Mark: - Initializer
     
     init(fileName: String,name: String) {
         self.fileName = fileName

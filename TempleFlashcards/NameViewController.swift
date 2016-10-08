@@ -54,12 +54,11 @@ class NameViewController : UITableViewController {
  
         NameViewController.isSelected = true
         NameViewController.selectedIndexPath = indexPath
-        //Fill in selected later
+
         if (CardViewController.isSelected){
             if(NameViewController.isSelected){
                 if (CardViewController.selectedIndexPath.item == NameViewController.selectedIndexPath.item){
                     
-//                    print("correct")
                     
                     //Remove item and deselect
                     CurrentFlashcardList.flashcardList.templeList.remove(at: CardViewController.selectedIndexPath.item)
@@ -86,8 +85,7 @@ class NameViewController : UITableViewController {
                     
                 }
                 else{
-                        print("incorrect")
-  //                      incorrectAlert()
+                        incorrectAlert()
                 }
             }
         }
@@ -114,20 +112,15 @@ class NameViewController : UITableViewController {
     }
     
     func updateFromView(notification: Notification) {
-        print("caught tableview update")
+
         tableView.deselectRow(at: NameViewController.selectedIndexPath, animated: false)
         NameViewController.selectedIndexPath = IndexPath()
-        for temples in CurrentFlashcardList.flashcardList.templeList {
-            print(temples.name)
-        }
         update()
         
     }
     
     func update(){
-        DispatchQueue.main.async{
-            self.tableView.reloadData()
-        }
+
         tableView.reloadData()
     }
     

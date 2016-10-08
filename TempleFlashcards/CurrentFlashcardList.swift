@@ -10,21 +10,18 @@ import Foundation
 
 class CurrentFlashcardList {
 
+    //Mark: - Properties
+    
     var currentScore = 0
+    
     static var flashcardList = FlashcardList.permanentList
+    
+    
+    // Mark:- Helpers
     
     func templeCount () -> Int {
         return CurrentFlashcardList.flashcardList.templeList.count
     }
     
-    
-    
-    
-    
-    func removeCorrectanswer(_ flashcard: Flashcard){
-
-        //remove flashcard from deck
-        
-    }
 
 }

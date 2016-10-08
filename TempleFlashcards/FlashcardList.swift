@@ -10,6 +10,8 @@ import Foundation
 
 class FlashcardList {
 
+    // Mark: - Properties
+    
 var templeList = [
 
 
