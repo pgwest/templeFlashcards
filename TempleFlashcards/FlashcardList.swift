@@ -10,7 +10,7 @@ import Foundation
 
 class FlashcardList {
 
-let templeList = [
+var templeList = [
 
 
     Flashcard(fileName: "aba-nigeria-temple-lds-273999-mobile.jpg", name: "Aba Nigeria"),

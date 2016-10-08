@@ -10,6 +10,11 @@ import UIKit
 
 class CardViewController: UICollectionViewController {
     
+    
+    static var selectedIndexPath = IndexPath()
+    
+    static var isSelected = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,6 +55,36 @@ class CardViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // what to do when selected
         
+//        print("temple selected: ", CurrentFlashcardList.flashcardList.templeList[indexPath.row].name)
+//        print("card index: ", indexPath.item)
+  
+        highlightCells(indexPath: indexPath)
+        
+
+        if (CardViewController.isSelected){
+            if(NameViewController.isSelected){
+                if (CardViewController.selectedIndexPath.item == NameViewController.selectedIndexPath.item){
+                    
+                    //remove correct answers
+                    print("correct")
+                    CurrentFlashcardList.flashcardList.templeList.remove(at: CardViewController.selectedIndexPath.item)
+                    
+                    //Reset selection
+                    CardViewController.isSelected = false
+                    NameViewController.isSelected = false
+                    CardViewController.selectedIndexPath = IndexPath()
+                    
+                    //Reload views
+                    let notificationName = Notification.Name("loadTable")
+                    NotificationCenter.default.post(name: notificationName, object: nil)
+                    collectionView.reloadData()
+                }
+                else{
+                    print("incorrect")
+                }
+            }
+        }
+        
     }
     
     
@@ -57,13 +92,48 @@ class CardViewController: UICollectionViewController {
     
     // Mark: - Helpers
     
+    func highlightCells(indexPath: IndexPath) {
+        if CardViewController.selectedIndexPath.indices.count == 0 {
+            CardViewController.selectedIndexPath = indexPath
+            let cell = collectionView?.cellForItem(at: indexPath)
+            cell?.layer.borderWidth = 4.0
+            cell?.layer.borderColor = UIColor.gray.cgColor
+            //cell?.backgroundColor = UIColor.gray
+            CardViewController.isSelected = true
+        }
+        else{
+            if let oldCell = collectionView?.cellForItem(at: CardViewController.selectedIndexPath) {
+                oldCell.layer.borderWidth = 4.0
+                oldCell.layer.borderColor = UIColor.clear.cgColor
+                //oldCell.backgroundColor = UIColor.clear
+                //collectionView.reloadItems(at: [selectedIndexPath])
+            }
+            //print("old path", selectedIndexPath)
+            //print("new path", indexPath)
+            if(CardViewController.selectedIndexPath == indexPath && CardViewController.isSelected){
+                CardViewController.isSelected = false
+                print("card view is false")
+            }
+            else{
+                let cell = collectionView?.cellForItem(at: indexPath)
+                cell?.layer.borderWidth = 4.0
+                cell?.layer.borderColor = UIColor.gray.cgColor
+//                cell?.backgroundColor = UIColor.gray
+                CardViewController.isSelected = true
+                print(indexPath)
+            }
+            CardViewController.selectedIndexPath = indexPath
+        }
+    }
     
+
 
 
     func loadList(notification: Notification){
         print("caught notification")
 //        self.collectionView?.reloadItems(at: (self.collectionView?.indexPathsForVisibleItems)!);
-
+//        self.collectionView?.reloadData()
+//        self.collectionView?.setNeedsDisplay()
         self.collectionView?.reloadData()
     }
     

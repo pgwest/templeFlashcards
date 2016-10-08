@@ -16,6 +16,8 @@ class CustomCellView : UIView {
 
     var templeFileName = ""
     
+    
+    
     override func draw(_ rect: CGRect) {
         
         UIImage(named: templeFileName)?.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: bounds.width, height: bounds.width))) // bounds) //want to be 98x98
@@ -23,6 +25,7 @@ class CustomCellView : UIView {
 //        print("bounds width", bounds.width)
 //        print("the temple name is,", templeName)
     
+        print("the study mode is", CustomCellView.studyMode)
         if CustomCellView.studyMode {
             
             //let banner = UIBezierPath()
@@ -93,16 +96,16 @@ class CustomCellView : UIView {
     
     func requiredHeight() -> CGFloat{
         
-        let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: CGFloat.greatestFiniteMagnitude))
-        label.numberOfLines = 0
-        label.text = templeName
-        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        let myLabel:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: CGFloat.greatestFiniteMagnitude))
+        myLabel.numberOfLines = 0
+        myLabel.text = templeName
+        myLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         let font = UIFont(name: "Palatino-Bold", size: 10)
-        label.font = font
+        myLabel.font = font
         
-        label.sizeToFit()
+        myLabel.sizeToFit()
         
-        return label.frame.height
+        return myLabel.frame.height
     }
     
 
