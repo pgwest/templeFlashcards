@@ -11,6 +11,8 @@ import UIKit
 
 class CustomCollectionCell : UICollectionViewCell {
     
+    // Mark: - View life cycle
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -24,9 +26,11 @@ class CustomCollectionCell : UICollectionViewCell {
         // Remove the circle in subview here...
     }
     
-    
+    // Mark: - Outlets
     
     @IBOutlet weak var customView: CustomCellView!
+    
+    // Mark: - Helpers
     
     func updateCellView(notification: Notification) {
         customView.setNeedsDisplay()

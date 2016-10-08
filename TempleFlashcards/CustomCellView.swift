@@ -25,7 +25,7 @@ class CustomCellView : UIView {
     
     
     
-    // Mark: Draw View
+    // Mark: - Draw View
     
     override func draw(_ rect: CGRect) {
         
@@ -66,6 +66,9 @@ class CustomCellView : UIView {
         
         
     }
+    
+    
+    // Mark: - Helpers
     
     // adapted from http://stackoverflow.com/questions/25180443/adjust-uilabel-height-to-text 
     

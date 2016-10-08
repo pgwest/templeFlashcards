@@ -10,13 +10,17 @@ import UIKit
 
 class CardViewController: UICollectionViewController {
     
+    
     //Mark: - Constants
     
     static var selectedIndexPath = IndexPath()
     
     static var isSelected = false
     
+    
+    
     // Mark: - View lifecycle
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +32,10 @@ class CardViewController: UICollectionViewController {
     }
 
     
+    
+    
     // Mark: - Collection view data source
+    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return CurrentFlashcardList.flashcardList.templeList.count
@@ -61,7 +68,10 @@ class CardViewController: UICollectionViewController {
     }
     
     
+    
+    
     // Mark: - Collection view delegate
+    
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // what to do when selected
@@ -131,36 +141,44 @@ class CardViewController: UICollectionViewController {
     }
     
     func highlightCells(indexPath: IndexPath) {
-        if CardViewController.selectedIndexPath.indices.count == 0 {
-            CardViewController.selectedIndexPath = indexPath
-            let cell = collectionView?.cellForItem(at: indexPath)
-            cell?.layer.borderWidth = 4.0
-            cell?.layer.borderColor = UIColor.gray.cgColor
-            //cell?.backgroundColor = UIColor.gray
-            CardViewController.isSelected = true
-        }
-        else{
-            if let oldCell = collectionView?.cellForItem(at: CardViewController.selectedIndexPath) {
-                oldCell.layer.borderWidth = 4.0
-                oldCell.layer.borderColor = UIColor.clear.cgColor
-                //oldCell.backgroundColor = UIColor.clear
-                //collectionView.reloadItems(at: [selectedIndexPath])
-            }
-            //print("old path", selectedIndexPath)
-            //print("new path", indexPath)
-            if(CardViewController.selectedIndexPath == indexPath && CardViewController.isSelected){
-                CardViewController.isSelected = false
-                print("card view is false")
-            }
-            else{
+        if  !CustomCellView.studyMode {
+            if CardViewController.selectedIndexPath.indices.count == 0 {
+                CardViewController.selectedIndexPath = indexPath
                 let cell = collectionView?.cellForItem(at: indexPath)
                 cell?.layer.borderWidth = 4.0
                 cell?.layer.borderColor = UIColor.gray.cgColor
-//                cell?.backgroundColor = UIColor.gray
+                //cell?.backgroundColor = UIColor.gray
                 CardViewController.isSelected = true
-                print(indexPath)
             }
-            CardViewController.selectedIndexPath = indexPath
+            else{
+                if let oldCell = collectionView?.cellForItem(at: CardViewController.selectedIndexPath) {
+                    oldCell.layer.borderWidth = 4.0
+                    oldCell.layer.borderColor = UIColor.clear.cgColor
+                    //oldCell.backgroundColor = UIColor.clear
+                    //collectionView.reloadItems(at: [selectedIndexPath])
+                }
+                //print("old path", selectedIndexPath)
+                //print("new path", indexPath)
+                if(CardViewController.selectedIndexPath == indexPath && CardViewController.isSelected){
+                    CardViewController.isSelected = false
+                    print("card view is false")
+                }
+                else{
+                    let cell = collectionView?.cellForItem(at: indexPath)
+                    cell?.layer.borderWidth = 4.0
+                    cell?.layer.borderColor = UIColor.gray.cgColor
+    //                cell?.backgroundColor = UIColor.gray
+                    CardViewController.isSelected = true
+                    print(indexPath)
+                }
+                CardViewController.selectedIndexPath = indexPath
+            }
+        }
+        else {
+            let cell = collectionView?.cellForItem(at: indexPath)
+            cell?.layer.borderWidth = 4.0
+            cell?.layer.borderColor = UIColor.clear.cgColor
+
         }
     }
     

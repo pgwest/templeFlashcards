@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController : UIViewController {
     
+    // Mark: - View life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,34 +22,46 @@ class ViewController : UIViewController {
     }
     
 
+    // Mark: - Properties
     
     var hideTable = true
     
     static var score = 0
+    
+    
+    // Mark: - outlets
     
     @IBAction func studyMode(_ sender: AnyObject) {
         if hideTable == false {
             
             tableViewWidthConstraint.constant = UIScreen.main.bounds.width * 0.66
             CustomCellView.studyMode = false
+            
             let notificationName = Notification.Name("load")
             NotificationCenter.default.post(name: notificationName, object: nil)
-//            CardViewController.update()
+            
             hideTable = true
-            resetGame()
+            //resetGame()
         }
         else{
+            
             tableViewWidthConstraint.constant = UIScreen.main.bounds.width//720
             CustomCellView.studyMode = true
+            
             let notificationName = Notification.Name("load")
             NotificationCenter.default.post(name: notificationName, object: nil)
             hideTable = false
         }
-        UIView.animate(withDuration: 0.5) {
+
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseInOut], animations: {
             self.view.layoutIfNeeded()
-        }
+            }, completion: nil)
         
+        if hideTable {
+            resetGame()
+        }
     }
+    
     
     @IBOutlet weak var tableViewWidthConstraint: NSLayoutConstraint!
     
@@ -60,11 +74,14 @@ class ViewController : UIViewController {
         
     }
     
+    // Mark: - helpers
+    
     func updateScore(notification: Notification){
         score.title = "\(ViewController.score)/42"
     }
     
     func resetGame() {
+        print("reset game")
         CurrentFlashcardList.flashcardList = FlashcardList.permanentList
         score.title = "0/42"
         ViewController.score = 0
@@ -79,6 +96,7 @@ class ViewController : UIViewController {
         NameViewController.isSelected = false
         
         self.view.setNeedsDisplay()
+        self.view.layoutIfNeeded()
     }
     
 }

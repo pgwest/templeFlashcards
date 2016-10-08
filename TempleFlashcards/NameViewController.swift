@@ -10,6 +10,8 @@ import UIKit
 
 class NameViewController : UITableViewController {
     
+    // Mark: - View life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,9 +23,13 @@ class NameViewController : UITableViewController {
         
     }
     
+    // Mark: - Properties
+    
     static var selectedIndexPath = IndexPath()
     static var isSelected = false
     let TableNameCellIdentifier = "TempleNames"
+    
+    
     
     
     // Mark: - Table view data source
@@ -40,11 +46,12 @@ class NameViewController : UITableViewController {
         return cell
     }
     
+    
+    
     // Mark: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
- //       tableView.reloadData()
-
+ 
         NameViewController.isSelected = true
         NameViewController.selectedIndexPath = indexPath
         //Fill in selected later
@@ -64,7 +71,6 @@ class NameViewController : UITableViewController {
                     CardViewController.isSelected = false
                     NameViewController.isSelected = false
                     CardViewController.selectedIndexPath = IndexPath()
-//                    print("selected index", NameViewController.selectedIndexPath)
                     NameViewController.selectedIndexPath = IndexPath()
                     
                     //Update the views
@@ -80,15 +86,16 @@ class NameViewController : UITableViewController {
                     
                 }
                 else{
-                    print("incorrect")
-//                    print("Selected index", NameViewController.selectedIndexPath)
-                    incorrectAlert()
+                        print("incorrect")
+                        incorrectAlert()
                 }
             }
         }
-       // tableView.reloadData()
-
     }
+    
+    
+    
+    // Mark: - Helpers
     
     func correctAlert() {
         let alertController = UIAlertController(title: "Correct Answer", message:
