@@ -10,10 +10,13 @@ import UIKit
 
 class CardViewController: UICollectionViewController {
     
+    //Mark: - Constants
     
     static var selectedIndexPath = IndexPath()
     
     static var isSelected = false
+    
+    // Mark: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +24,11 @@ class CardViewController: UICollectionViewController {
         let notificationName = Notification.Name("load")
         //NotificationCenter.defaultCenter().addObserver(self, selector: "loadList:", name:"load", object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CardViewController.loadList), name: notificationName, object: nil)
-
         
     }
 
     
-    // Mark: Collection view data source
+    // Mark: - Collection view data source
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return CurrentFlashcardList.flashcardList.templeList.count
@@ -38,6 +40,15 @@ class CardViewController: UICollectionViewController {
         if let customCell = cell as? CustomCollectionCell {
             customCell.customView.templeFileName = CurrentFlashcardList.flashcardList.templeList[indexPath.row].fileName
             customCell.customView.templeName = CurrentFlashcardList.flashcardList.templeList[indexPath.row].name
+            customCell.layer.borderWidth = 4.0
+            
+            if (indexPath == CardViewController.selectedIndexPath) {
+                customCell.layer.borderColor = UIColor.gray.cgColor
+            }
+            else{
+                customCell.layer.borderColor = UIColor.clear.cgColor
+            }
+            
             return customCell
         }
         else{
@@ -50,7 +61,7 @@ class CardViewController: UICollectionViewController {
     }
     
     
-    // Mark: Collection view delegate
+    // Mark: - Collection view delegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // what to do when selected
@@ -60,14 +71,26 @@ class CardViewController: UICollectionViewController {
   
         highlightCells(indexPath: indexPath)
         
+        answerSelected(indexPath: indexPath)
 
+        
+    }
+    
+    
+    
+    
+    // Mark: - Helpers
+    
+    
+    func answerSelected(indexPath: IndexPath){
         if (CardViewController.isSelected){
             if(NameViewController.isSelected){
                 if (CardViewController.selectedIndexPath.item == NameViewController.selectedIndexPath.item){
                     
-                    //remove correct answers
+                    //remove correct answers and fix score
                     print("correct")
                     CurrentFlashcardList.flashcardList.templeList.remove(at: CardViewController.selectedIndexPath.item)
+                    ViewController.score += 1
                     
                     //Reset selection
                     CardViewController.isSelected = false
@@ -77,20 +100,35 @@ class CardViewController: UICollectionViewController {
                     //Reload views
                     let notificationName = Notification.Name("loadTable")
                     NotificationCenter.default.post(name: notificationName, object: nil)
-                    collectionView.reloadData()
+                    let notificationName1 = Notification.Name("updateScore")
+                    NotificationCenter.default.post(name: notificationName1, object: nil)
+                    collectionView?.reloadData()
+                    correctAlert()
                 }
                 else{
                     print("incorrect")
+                    incorrectAlert()
                 }
             }
         }
         
     }
     
+    func correctAlert() {
+        let alertController = UIAlertController(title: "Correct Answer", message:
+            "You answered right!", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
     
-    
-    
-    // Mark: - Helpers
+    func incorrectAlert() {
+        let alertController = UIAlertController(title: "Incorrect Answer", message:
+            "You answered wrong! :(", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     func highlightCells(indexPath: IndexPath) {
         if CardViewController.selectedIndexPath.indices.count == 0 {
@@ -131,24 +169,13 @@ class CardViewController: UICollectionViewController {
 
     func loadList(notification: Notification){
         print("caught notification")
-//        self.collectionView?.reloadItems(at: (self.collectionView?.indexPathsForVisibleItems)!);
+//        self.collectionView?.reloadItems(at: (self.collectionView?.indexPathsForVisibleItems)!)
 //        self.collectionView?.reloadData()
 //        self.collectionView?.setNeedsDisplay()
         self.collectionView?.reloadData()
     }
     
-    
-    func update() {
-        self.collectionView?.reloadData()
-        
-    }
-    
-    func removeCorrectanswer(_ flashcard: Flashcard){
-    
-        //remove flashcard from deck
-        
-        self.collectionView?.reloadData()
-    }
+
     
     
     

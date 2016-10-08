@@ -8,12 +8,30 @@
 
 import UIKit
 
+
 class CustomCollectionCell : UICollectionViewCell {
     
-
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        customView.image = UIImage()
+        customView.templeName = ""
+        customView.templeFileName = ""
+        customView.label = UILabel()
+        self.layer.borderColor = UIColor.clear.cgColor
+        
+        customView.setNeedsDisplay()
+        // Remove the circle in subview here...
+    }
+    
+    
+    
     @IBOutlet weak var customView: CustomCellView!
     
-    
+    func updateCellView(notification: Notification) {
+        customView.setNeedsDisplay()
+        
+    }
     
     
 }

@@ -11,7 +11,7 @@ import Foundation
 class CurrentFlashcardList {
 
     var currentScore = 0
-    static let flashcardList = FlashcardList.permanentList
+    static var flashcardList = FlashcardList.permanentList
     
     func templeCount () -> Int {
         return CurrentFlashcardList.flashcardList.templeList.count

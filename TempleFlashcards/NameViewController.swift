@@ -57,6 +57,8 @@ class NameViewController : UITableViewController {
                     //Remove item and deselect
                     CurrentFlashcardList.flashcardList.templeList.remove(at: CardViewController.selectedIndexPath.item)
                     tableView.deselectRow(at: CardViewController.selectedIndexPath, animated: false)
+                    ViewController.score += 1
+
                     
                     //Reset values
                     CardViewController.isSelected = false
@@ -69,16 +71,39 @@ class NameViewController : UITableViewController {
                     update()
                     let notificationName = Notification.Name("load")
                     NotificationCenter.default.post(name: notificationName, object: nil)
+                    let notificationName1 = Notification.Name("updateScore")
+                    NotificationCenter.default.post(name: notificationName1, object: nil)
+                    
+                    
+                    
+                    correctAlert()
                     
                 }
                 else{
                     print("incorrect")
 //                    print("Selected index", NameViewController.selectedIndexPath)
+                    incorrectAlert()
                 }
             }
         }
        // tableView.reloadData()
 
+    }
+    
+    func correctAlert() {
+        let alertController = UIAlertController(title: "Correct Answer", message:
+            "You answered right!", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func incorrectAlert() {
+        let alertController = UIAlertController(title: "Incorrect Answer", message:
+            "You answered wrong! :(", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func updateFromView(notification: Notification) {
