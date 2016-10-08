@@ -67,6 +67,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="score" destination="i2u-RX-yfW" id="Ifb-MQ-0ka"/>
+                        <outlet property="studyModeButton" destination="fU6-XO-cIP" id="PTz-To-pdm"/>
                         <outlet property="tableViewWidthConstraint" destination="POS-oj-ggd" id="gxk-aQ-be0"/>
                     </connections>
                 </viewController>
@@ -78,7 +79,7 @@
         <scene sceneID="yUs-Ge-QdP">
             <objects>
                 <collectionViewController id="jPd-Zs-Lsa" customClass="CardViewController" customModule="TempleFlashcards" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="kah-1h-wUW">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="kah-1h-wUW">
                         <rect key="frame" x="0.0" y="0.0" width="442" height="288"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

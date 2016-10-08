@@ -31,11 +31,14 @@ class ViewController : UIViewController {
     
     // Mark: - outlets
     
+    @IBOutlet weak var studyModeButton: UIBarButtonItem!
+    
     @IBAction func studyMode(_ sender: AnyObject) {
         if hideTable == false {
             
             tableViewWidthConstraint.constant = UIScreen.main.bounds.width * 0.66
             CustomCellView.studyMode = false
+            studyModeButton.title = "Study Mode"
             
             let notificationName = Notification.Name("load")
             NotificationCenter.default.post(name: notificationName, object: nil)
@@ -47,6 +50,7 @@ class ViewController : UIViewController {
             
             tableViewWidthConstraint.constant = UIScreen.main.bounds.width//720
             CustomCellView.studyMode = true
+            studyModeButton.title = "Game Mode"
             
             let notificationName = Notification.Name("load")
             NotificationCenter.default.post(name: notificationName, object: nil)
