@@ -98,7 +98,7 @@ class CardViewController: UICollectionViewController {
                 if (CardViewController.selectedIndexPath.item == NameViewController.selectedIndexPath.item){
                     
                     //remove correct answers and fix score
-                    print("correct")
+//                    print("correct")
                     CurrentFlashcardList.flashcardList.templeList.remove(at: CardViewController.selectedIndexPath.item)
                     ViewController.score += 1
                     
@@ -116,7 +116,7 @@ class CardViewController: UICollectionViewController {
                     correctAlert()
                 }
                 else{
-                    print("incorrect")
+//                    print("incorrect")
                     incorrectAlert()
                 }
             }
@@ -161,7 +161,7 @@ class CardViewController: UICollectionViewController {
                 //print("new path", indexPath)
                 if(CardViewController.selectedIndexPath == indexPath && CardViewController.isSelected){
                     CardViewController.isSelected = false
-                    print("card view is false")
+//                    print("card view is false")
                 }
                 else{
                     let cell = collectionView?.cellForItem(at: indexPath)
@@ -169,7 +169,7 @@ class CardViewController: UICollectionViewController {
                     cell?.layer.borderColor = UIColor.gray.cgColor
     //                cell?.backgroundColor = UIColor.gray
                     CardViewController.isSelected = true
-                    print(indexPath)
+//                    print(indexPath)
                 }
                 CardViewController.selectedIndexPath = indexPath
             }

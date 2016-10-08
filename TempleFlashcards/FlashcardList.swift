@@ -60,8 +60,6 @@ var templeList = [
 
     static let permanentList = FlashcardList()
     
-    private init(){
-        
-    }
+
     
 }

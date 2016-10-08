@@ -19,6 +19,7 @@ class CustomCollectionCell : UICollectionViewCell {
         customView.image = UIImage()
         customView.templeName = ""
         customView.templeFileName = ""
+        customView.label.removeFromSuperview()
         customView.label = UILabel()
         self.layer.borderColor = UIColor.clear.cgColor
         

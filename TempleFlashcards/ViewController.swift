@@ -34,6 +34,7 @@ class ViewController : UIViewController {
     @IBOutlet weak var studyModeButton: UIBarButtonItem!
     
     @IBAction func studyMode(_ sender: AnyObject) {
+        self.view.layoutIfNeeded()
         if hideTable == false {
             
             tableViewWidthConstraint.constant = UIScreen.main.bounds.width * 0.66
@@ -85,8 +86,10 @@ class ViewController : UIViewController {
     }
     
     func resetGame() {
-        print("reset game")
-        CurrentFlashcardList.flashcardList = FlashcardList.permanentList
+        
+//        print("reset game")
+        CurrentFlashcardList.flashcardList = FlashcardList()
+        
         score.title = "0/42"
         ViewController.score = 0
         

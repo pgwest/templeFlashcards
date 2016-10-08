@@ -32,8 +32,8 @@ class CustomCellView : UIView {
        image = UIImage(named: templeFileName)!
         image.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: bounds.width, height: bounds.width))) // bounds) //want to be 98x98
 
-        print("the study mode is", CustomCellView.studyMode)
-        print("name at redraw ", templeName)
+//        print("the study mode is", CustomCellView.studyMode)
+//        print("name at redraw ", templeName)
         
 
         
