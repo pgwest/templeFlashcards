@@ -21,10 +21,10 @@ class CustomCollectionCell : UICollectionViewCell {
         customView.templeFileName = ""
         customView.label.removeFromSuperview()
         customView.label = UILabel()
+        self.layer.borderWidth = 4.0
         self.layer.borderColor = UIColor.clear.cgColor
         
         customView.setNeedsDisplay()
-        // Remove the circle in subview here...
     }
     
     // Mark: - Outlets

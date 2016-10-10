@@ -53,6 +53,9 @@ class ViewController : UIViewController {
             tableViewWidthConstraint.constant = UIScreen.main.bounds.width//720
             CustomCellView.studyMode = true
             studyModeButton.title = "Game Mode"
+            CardViewController.isSelected = false
+            
+            resetGame()
             
             let notificationName = Notification.Name("load")
             NotificationCenter.default.post(name: notificationName, object: nil)
@@ -88,7 +91,6 @@ class ViewController : UIViewController {
     
     func resetGame() {
         
-//        print("reset game")
         CurrentFlashcardList.flashcardList = FlashcardList()
         
         score.title = "0/42"
